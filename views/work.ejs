@@ -1,0 +1,28 @@
+<%- include("partials/header.ejs") %>
+
+<h1>To Do List:</h1>
+
+<form action="/addToDoWork" method="POST">
+  <input type="text" name="toDoItem" placeholder="Enter Text">
+  <input type="submit" value="Add Item">
+</form>
+
+<ul>
+  <li>
+    <input type="checkbox">
+    <label for="interview">Get interview</label>
+  </li>
+  <li>
+    <input type="checkbox">
+    <label for="prague">Move to Prague</label>
+  </li>
+
+  <% toDoListWork.forEach((item, index) => { %>
+    <li>
+      <input type="checkbox" id="<%= index %>" name="<%= index %>">
+      <label for="<%= index %>"><%= item %></label>
+    </li>
+  <% }); %>
+</ul>
+
+<%- include("partials/footer.ejs") %>
